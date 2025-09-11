@@ -1,418 +1,242 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jadwal Kegiatan Belajar</title>
-    <style>
-        /* Reset dan Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #4a2c3a;
-            background: linear-gradient(135deg, #ffe6f0 0%, #fff0f6 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header Styles */
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 30px;
-            background: linear-gradient(135deg, #ff66b3 0%, #ff3399 100%);
-            color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(255, 102, 179, 0.4);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
-
-        .week-info {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.3);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            color: #fff;
-            box-shadow: 0 0 8px rgba(255, 102, 179, 0.7);
-        }
-
-        /* Navigation */
-        .week-navigation {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .week-btn {
-            padding: 12px 25px;
-            background-color: #ff66b3;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 4px 6px rgba(255, 102, 179, 0.4);
-        }
-
-        .week-btn:hover {
-            background-color: #ff3399;
-            transform: translateY(-2px);
-        }
-
-        .week-btn.active {
-            background-color: #cc2a7a;
-            box-shadow: 0 6px 10px rgba(204, 42, 122, 0.7);
-        }
-
-        /* Schedule Styles */
-        .schedule-container {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(255, 102, 179, 0.2);
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 18px;
-            text-align: left;
-            border-bottom: 1px solid #ffd6e7;
-        }
-
-        th {
-            background-color: #ff66b3;
-            color: white;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover {
-            background-color: #fff0f6;
-            transition: background-color 0.3s ease;
-        }
-
-        .time-column {
-            font-weight: 600;
-            background-color: #ffe6f0;
-            width: 20%;
-            color: #cc2a7a;
-        }
-
-        .day-column {
-            width: 20%;
-        }
-
-        .subject {
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #7a2a4d;
-        }
-
-        .time-display {
-            font-size: 0.9rem;
-            color: #a64d7a;
-            display: flex;
-            align-items: center;
-        }
-
-        .time-display::before {
-            content: "🕒 ";
-            margin-right: 5px;
-        }
-
-        .break {
-            background-color: #ffe6f0;
-            font-style: italic;
-            color: #cc2a7a;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #a64d7a;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            th, td {
-                padding: 14px;
-            }
-
-            h1 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .schedule-container {
-                overflow-x: auto;
-            }
-
-            table {
-                min-width: 600px;
-            }
-
-            th, td {
-                padding: 12px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .week-btn {
-                padding: 10px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            .week-info {
-                font-size: 0.9rem;
-            }
-
-            .week-navigation {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .week-btn {
-                width: 100%;
-                max-width: 250px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur HTML Dasar</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Jadwal Kegiatan Belajar</h1>
-            <p class="subtitle">Rencana pembelajaran untuk produktivitas maksimal</p>
-            <div class="week-info" id="currentWeek">Minggu ke-1, Semester 3 2025</div>
-        </header>
+  <h1>Ini adalah Struktur HTML paling dasar</h1>
+  <p>Selamat datang di HTML! <br> Ini adalah halaman web pertama saya :)</p>
+</body>
+</html>
 
-        <div class="week-navigation">
-            <button class="week-btn active" onclick="changeWeek(1)">Minggu 1</button>
-            <button class="week-btn" onclick="changeWeek(2)">Minggu 2</button>
-        </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Heading</title>
+</head>
+<body>
+  <h1>Heading 1 (Judul Utama)</h1>
+  <h2>Heading 2 (Sub Judul)</h2>
+  <h3>Ini adalah Heading 3</h3>
+  <h4>Ini adalah Heading 4</h4>
+  <h5>Ini adalah Heading 5</h5>
+  <h6>Ini adalah Heading 6</h6>
 
-        <div class="schedule-container">
-            <table id="schedule-table">
-                <thead>
-                    <tr>
-                        <th>Hari</th>
-                        <th>Mata Kuliah</th>
-                        <th>Waktu</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Data akan diisi oleh JavaScript -->
-                </tbody>
-            </table>
-        </div>
+  <h2>Contoh Penggunaan Heading dalam struktur dokumen</h2>
+  <h3>Bab 1: Pengenalan HTML</h3>
+  <h4>1.1 Apa itu HTML?</h4>
+  <h4>1.2 Kenapa belajar HTML?</h4>
+</body>
+</html>
 
-        <footer>
-            <p>© 2025 Jadwal Belajar Mingguan. Dirancang untuk produktivitas optimal.</p>
-        </footer>
-    </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Paragraf</title>
+</head>
+<body>
+    <h1>Contoh Paragraf dan Text Formating</h1>
+    
+    <!-- Paragraf biasa -->
+    <p>
+        Ini adalah paragraf pertama. HTML adalah bahasa markup yang digunakan 
+        untuk membuat halaman web.
+    </p>
 
-    <script>
-        // Data jadwal
-        const weeklySchedule = {
-            1: { // Minggu 1
-                senin: {
-                    matkul: "Kompleksitas Algoritma",
-                    waktu: "14:00 - 16:00"
-                },
-                selasa: {
-                    matkul: "Statistika",
-                    waktu: "10:30 - 13:00"
-                },
-                rabu: {
-                    matkul: "Istirahat",
-                    waktu: "-",
-                    isBreak: true
-                },
-                kamis: {
-                    matkul: "Pemrograman Berorientasi Objek",
-                    waktu: "09:00 - 11:30"
-                },
-                jumat: {
-                    matkul: "Pemrograman Web",
-                    waktu: "18:00 - 20:30"
-                },
-                sabtu: {
-                    matkul: "Istirahat",
-                    waktu: "-",
-                    isBreak: true
-                },
-                minggu: {
-                    matkul: "Kewarganegaraan",
-                    waktu: "12:00 - 13:00"
-                }
-            },
-            2: { // Minggu 2
-                senin: {
-                    matkul: "Kompleksitas Algoritma",
-                    waktu: "13:00 - 15:00"
-                },
-                selasa: {
-                    matkul: "Statistika",
-                    waktu: "09:30 - 12:00"
-                },
-                rabu: {
-                    matkul: "Pemrograman Web Berbasis CMS",
-                    waktu: "17:00 - 18:00"
-                },
-                kamis: {
-                    matkul: "Pemrograman Berorientasi Objek",
-                    waktu: "10:00 - 12:30"
-                },
-                jumat: {
-                    matkul: "Pemrograman Web",
-                    waktu: "17:00 - 19:30"
-                },
-                sabtu: {
-                    matkul: "Istirahat",
-                    waktu: "-",
-                    isBreak: true
-                },
-                minggu: {
-                    matkul: "Istirahat",
-                    waktu: "-",
-                    isBreak: true
-                }
-            }
-        };
+    <p>
+        Ini adalah paragraf kedua. Setiap paragraf akan otomatis diberi jarak oleh 
+        browser.
+    </p>
 
-        let currentWeek = 1;
-        
-        // Fungsi untuk mengisi tabel dengan data jadwal
-        function populateSchedule(week) {
-            const schedule = weeklySchedule[week];
-            const days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
-            const dayNames = {
-                senin: 'Senin',
-                selasa: 'Selasa',
-                rabu: 'Rabu',
-                kamis: 'Kamis',
-                jumat: 'Jumat',
-                sabtu: 'Sabtu',
-                minggu: 'Minggu'
-            };
-            
-            const tbody = document.querySelector('#schedule-table tbody');
-            tbody.innerHTML = ''; // Kosongkan tabel sebelum mengisi ulang
-            
-            days.forEach(day => {
-                const row = document.createElement('tr');
-                
-                // Kolom hari
-                const dayCell = document.createElement('td');
-                dayCell.className = 'time-column';
-                dayCell.textContent = dayNames[day];
-                row.appendChild(dayCell);
-                
-                // Kolom mata kuliah
-                const subjectCell = document.createElement('td');
-                subjectCell.className = 'day-column';
-                const subjectDiv = document.createElement('div');
-                subjectDiv.className = 'subject';
-                subjectDiv.textContent = schedule[day].matkul;
-                subjectCell.appendChild(subjectDiv);
-                row.appendChild(subjectCell);
-                
-                // Kolom waktu
-                const timeCell = document.createElement('td');
-                timeCell.className = 'day-column';
-                const timeDiv = document.createElement('div');
-                timeDiv.className = 'time-display';
-                timeDiv.textContent = schedule[day].waktu;
-                timeCell.appendChild(timeDiv);
-                row.appendChild(timeCell);
-                
-                // Tambahkan class break jika diperlukan
-                if (schedule[day].isBreak) {
-                    row.classList.add('break');
-                }
-                
-                tbody.appendChild(row);
-            });
-        }
+    <!-- Paragraf dengan text formatting -->
+    <p>
+        Dalam paragraf ini kita bisa menggunakan 
+        <strong>text tebal (bold)</strong> dan <em>text miring (italic)</em>.
+    </p>
 
-        // Fungsi untuk mengubah minggu
-        function changeWeek(week) {
-            currentWeek = week;
+    <p>
+        Kita juga bisa membuat text <u>bergaris bawah</u> dan 
+        <mark>highlight</mark>.
+    </p>
 
-            // Update UI untuk minggu yang aktif
-            document.querySelectorAll('.week-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelectorAll('.week-btn')[week - 1].classList.add('active');
+    <!-- Break line -->
+    <p>
+        Baris pertama.<br>Baris kedua dengan line break
+    </p>
 
-            // Update teks minggu
-            document.getElementById('currentWeek').textContent = `Minggu ke-${week}, Semester 3 2025`;
+    <!-- Horizontal rule -->
+    <hr>
+    <p>Garis horizontal di atas dibuat dengan tag hr.</p>
+</body>
+</html>
 
-            // Update jadwal
-            populateSchedule(week);
-        }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Paragraf</title>
+</head>
+<body>
+    <h1>Contoh Paragraf dan Text Formating</h1>
 
-        // Inisialisasi saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', () => {
-            populateSchedule(currentWeek);
-        });
-    </script>
+    <!-- Paragraf biasa -->
+    <p>
+        Ini adalah paragraf pertama. HTML adalah bahasa markup yang digunakan 
+        untuk membuat halaman web.
+    </p>
+
+    <p>
+        Ini adalah paragraf kedua. Setiap paragraf akan otomatis diberi jarak oleh 
+        browser.
+    </p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Text Formatting</title>
+</head>
+<body>
+    <h1>Paragraf dengan Text Formatting</h1>
+
+    <p>
+        Dalam paragraf ini kita bisa menggunakan 
+        <strong>text tebal (bold)</strong> dan <em>text miring (italic)</em>.
+    </p>
+
+    <p>
+        Kita juga bisa membuat text <u>bergaris bawah</u> dan 
+        <mark>highlight</mark>.
+    </p>
+
+    <!-- Break line -->
+    <p>
+        Baris pertama.<br>Baris kedua dengan line break
+    </p>
+
+    <!-- Horizontal rule -->
+    <hr>
+    <p>Garis horizontal di atas dibuat dengan tag hr.</p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Link</title>
+</head>
+<body>
+    <h1>Contoh Link dalam HTML</h1>
+
+    <!-- Link eksternal -->
+    <h2>Link Eksternal</h2>
+    <p>
+        Kunjungi <a href="https://www.google.com">Google</a> untuk mencari informasi.
+    </p>
+    <p>
+        Belajar programming di <a href="https://www.w3schools.com">W3Schools</a>.
+    </p>
+
+    <!-- Link dengan target blank (buka di tab baru) -->
+    <h2>Link dengan Target Blank</h2>
+    <p>
+        Buka <a href="https://github.com" target="_blank">GitHub</a> di tab baru.
+    </p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Link</title>
+</head>
+<body>
+    <h1>Contoh Link dalam HTML</h1>
+
+    <!-- Link eksternal -->
+    <h2>Link Eksternal</h2>
+    <p>
+        Kunjungi <a href="https://www.google.com">Google</a> untuk mencari informasi.
+    </p>
+    <p>
+        Belajar programming di <a href="https://www.w3schools.com">W3Schools</a>.
+    </p>
+
+    <!-- Link dengan target blank (buka di tab baru) -->
+    <h2>Link dengan Target Blank</h2>
+    <p>
+        Buka <a href="https://github.com" target="_blank">GitHub</a> di tab baru.
+    </p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Gambar</title>
+</head>
+<body>
+    <h1>Contoh Gambar dalam HTML</h1>
+
+    <!-- Gambar dengan alt text -->
+    <h2>Gambar Lokal</h2>
+    <img src="images/sample.jpg" alt="Contoh Gambar" width="300">
+    <p>Gambar di atas adalah contoh gambar lokal dengan lebar 300px.</p>
+
+    <!-- Gambar dengan ukuran berbeda -->
+    <h2>Gambar dengan Ukuran Berbeda</h2>
+    <img src="images/sample.jpg" alt="Gambar Kecil" width="150" height="100">
+    <img src="images/sample.jpg" alt="Gambar Sedang" width="250" height="170">
+
+    <!-- Gambar dari internet -->
+    <h2>Gambar dari Internet</h2>
+    <img src="https://via.placeholder.com/300x200/ACA5F0/FFFFFF?text=Placeholder" 
+         alt="Placeholder Image" width="300">
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Gambar Lanjutan</title>
+</head>
+<body>
+    <!-- Gambar sebagai link -->
+    <h2>Gambar sebagai Link</h2>
+    <a href="https://www.google.com">
+        <img src="https://via.placeholder.com/200x100/2196F3/FFFFFF?text=Click+Me" 
+             alt="Klik gambar ini">
+    </a>
+
+    <!-- Figure dan figcaption -->
+    <h2>Gambar dengan Caption</h2>
+    <figure>
+        <img src="https://via.placeholder.com/400x250/FF8800/FFFFFF?text=Beautiful+Sunset" 
+             alt="Sunset" width="400">
+        <figcaption>Pemandangan matahari terbenam yang indah.</figcaption>
+    </figure>
+
+    <!-- Note -->
+    <p><b>Note:</b> Buat folder <code>images</code> jika ingin menggunakan gambar lokal.</p>
+    <p>Untuk gambar lokal, buatlah folder <code>images</code> di dalam folder ini 
+       dan masukkan file gambar (<code>sample.jpg</code>).</p>
 </body>
 </html>
